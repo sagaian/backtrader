@@ -90,7 +90,7 @@ class MetaIndicator(IndicatorBase.__class__):
 class Indicator(with_metaclass(MetaIndicator, IndicatorBase)):
     _ltype = LineIterator.IndType
 
-    csv = False
+    csv = True
 
     def advance(self, size=1):
         # Need intercepting this call to support datas with
