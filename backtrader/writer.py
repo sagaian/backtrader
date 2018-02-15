@@ -112,7 +112,7 @@ class WriterFile(WriterBase):
 
     def start(self):
         if self.p.csv:
-            self.writelineseparator()
+            #self.writelineseparator()
             self.writeiterable(self.headers, counter='Id')
 
     def stop(self):
