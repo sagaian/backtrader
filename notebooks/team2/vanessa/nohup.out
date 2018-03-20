@@ -1,0 +1,10 @@
+[I 17:27:51.776 NotebookApp] The port 3389 is already in use, trying another port.
+[I 17:27:51.804 NotebookApp] JupyterLab beta preview extension loaded from /home/project/anaconda3/lib/python3.6/site-packages/jupyterlab
+[I 17:27:51.804 NotebookApp] JupyterLab application directory is /home/project/anaconda3/share/jupyter/lab
+[I 17:27:51.809 NotebookApp] Serving notebooks from local directory: /home/project/workspace/backtrader/notebooks/team2/vanessa
+[I 17:27:51.809 NotebookApp] 0 active kernels
+[I 17:27:51.809 NotebookApp] The Jupyter Notebook is running at:
+[I 17:27:51.809 NotebookApp] https://[all ip addresses on your system]:3390/
+[I 17:27:51.809 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 17:39:40.773 NotebookApp] Interrupted...
+[I 17:39:40.774 NotebookApp] Shutting down 0 kernels
