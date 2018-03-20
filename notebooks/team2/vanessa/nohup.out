@@ -8,3 +8,224 @@
 [I 17:27:51.809 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
 [I 17:39:40.773 NotebookApp] Interrupted...
 [I 17:39:40.774 NotebookApp] Shutting down 0 kernels
+[I 05:38:46.896 NotebookApp] JupyterLab beta preview extension loaded from /home/project/anaconda3/lib/python3.6/site-packages/jupyterlab
+[I 05:38:46.918 NotebookApp] JupyterLab application directory is /home/project/anaconda3/share/jupyter/lab
+[I 05:38:46.926 NotebookApp] Serving notebooks from local directory: /home/project/workspace/backtrader/notebooks/team2/vanessa
+[I 05:38:46.926 NotebookApp] 0 active kernels
+[I 05:38:46.926 NotebookApp] The Jupyter Notebook is running at:
+[I 05:38:46.926 NotebookApp] https://[all ip addresses on your system]:3389/
+[I 05:38:46.926 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 05:38:59.627 NotebookApp] 404 GET /api/kernels/4576b6d9-59e5-4626-baf0-819319f0ea81/channels?session_id=de5f035b9d703813229dcd3089d1bb4f (173.63.135.142): Kernel does not exist: 4576b6d9-59e5-4626-baf0-819319f0ea81
+[W 05:38:59.717 NotebookApp] 404 GET /api/kernels/4576b6d9-59e5-4626-baf0-819319f0ea81/channels?session_id=de5f035b9d703813229dcd3089d1bb4f (173.63.135.142) 123.65ms referer=None
+[W 05:39:25.175 NotebookApp] 404 GET /api/contents/workspace/backtrader/notebooks/team2/vanessa?content=1&1521178765156 (173.63.135.142): No such file or directory: workspace/backtrader/notebooks/team2/vanessa
+[W 05:39:25.176 NotebookApp] No such file or directory: workspace/backtrader/notebooks/team2/vanessa
+[W 05:39:25.176 NotebookApp] 404 GET /api/contents/workspace/backtrader/notebooks/team2/vanessa?content=1&1521178765156 (173.63.135.142) 1.36ms referer=https://35.229.76.21:3389/lab?
+[W 05:39:29.613 NotebookApp] 404 GET /api/contents/workspace/backtrader/notebooks/team2/vanessa/0315_teststrategy.ipynb?content=0&1521178769594 (173.63.135.142): No such file or directory: workspace/backtrader/notebooks/team2/vanessa/0315_teststrategy.ipynb
+[W 05:39:29.614 NotebookApp] No such file or directory: workspace/backtrader/notebooks/team2/vanessa/0315_teststrategy.ipynb
+[W 05:39:29.614 NotebookApp] 404 GET /api/contents/workspace/backtrader/notebooks/team2/vanessa/0315_teststrategy.ipynb?content=0&1521178769594 (173.63.135.142) 1.42ms referer=https://35.229.76.21:3389/lab?
+[I 05:39:29.646 NotebookApp] Uploading file to /workspace/backtrader/notebooks/team2/vanessa/0315_teststrategy.ipynb
+[E 05:39:29.663 NotebookApp] Error while saving file: workspace/backtrader/notebooks/team2/vanessa/0315_teststrategy.ipynb [Errno 2] No such file or directory: '/home/project/workspace/backtrader/notebooks/team2/vanessa/workspace/backtrader/notebooks/team2/vanessa/0315_teststrategy.ipynb'
+    Traceback (most recent call last):
+      File "/home/project/anaconda3/lib/python3.6/site-packages/notebook/services/contents/filemanager.py", line 456, in save
+        self._save_notebook(os_path, nb)
+      File "/home/project/anaconda3/lib/python3.6/site-packages/notebook/services/contents/fileio.py", line 293, in _save_notebook
+        with self.atomic_writing(os_path, encoding='utf-8') as f:
+      File "/home/project/anaconda3/lib/python3.6/contextlib.py", line 81, in __enter__
+        return next(self.gen)
+      File "/home/project/anaconda3/lib/python3.6/site-packages/notebook/services/contents/fileio.py", line 213, in atomic_writing
+        with atomic_writing(os_path, *args, log=self.log, **kwargs) as f:
+      File "/home/project/anaconda3/lib/python3.6/contextlib.py", line 81, in __enter__
+        return next(self.gen)
+      File "/home/project/anaconda3/lib/python3.6/site-packages/notebook/services/contents/fileio.py", line 108, in atomic_writing
+        fileobj = io.open(path, 'w', encoding=encoding, **kwargs)
+    FileNotFoundError: [Errno 2] No such file or directory: '/home/project/workspace/backtrader/notebooks/team2/vanessa/workspace/backtrader/notebooks/team2/vanessa/0315_teststrategy.ipynb'
+[W 05:39:29.726 NotebookApp] 500 PUT /api/contents/workspace/backtrader/notebooks/team2/vanessa/0315_teststrategy.ipynb?1521178769625 (173.63.135.142): Unexpected error while saving file: workspace/backtrader/notebooks/team2/vanessa/0315_teststrategy.ipynb [Errno 2] No such file or directory: '/home/project/workspace/backtrader/notebooks/team2/vanessa/workspace/backtrader/notebooks/team2/vanessa/0315_teststrategy.ipynb'
+[W 05:39:29.726 NotebookApp] Unexpected error while saving file: workspace/backtrader/notebooks/team2/vanessa/0315_teststrategy.ipynb [Errno 2] No such file or directory: '/home/project/workspace/backtrader/notebooks/team2/vanessa/workspace/backtrader/notebooks/team2/vanessa/0315_teststrategy.ipynb'
+[E 05:39:29.727 NotebookApp] {
+      "Host": "35.229.76.21:3389",
+      "Connection": "keep-alive",
+      "Content-Length": "6904",
+      "Origin": "https://35.229.76.21:3389",
+      "X-Xsrftoken": "2|60a6748f|fa637e01d4eefd6100173a48448b8571|1521165222",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36",
+      "Content-Type": "application/json",
+      "Accept": "*/*",
+      "Referer": "https://35.229.76.21:3389/lab?",
+      "Accept-Encoding": "gzip, deflate, br",
+      "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8,zh-TW;q=0.7",
+      "Cookie": "_xsrf=2|60a6748f|fa637e01d4eefd6100173a48448b8571|1521165222; username-35-229-76-21-3389=\"2|1:0|10:1521178403|26:username-35-229-76-21-3389|44:MWE3YWQ4YzIyOGEyNGU3ZjgxMzJjYzc1MmRhOWEwYWI=|901548ac16b8fa9926b8ddc2b410abfacaa27b94dfa2e47961c83bc1a49f3222\""
+    }
+[E 05:39:29.727 NotebookApp] 500 PUT /api/contents/workspace/backtrader/notebooks/team2/vanessa/0315_teststrategy.ipynb?1521178769625 (173.63.135.142) 83.49ms referer=https://35.229.76.21:3389/lab?
+[W 05:39:37.804 NotebookApp] 404 GET /api/contents/workspace/backtrader/notebooks/team2/vanessa?1521178777788 (173.63.135.142): No such file or directory: workspace/backtrader/notebooks/team2/vanessa
+[W 05:39:37.804 NotebookApp] No such file or directory: workspace/backtrader/notebooks/team2/vanessa
+[W 05:39:37.805 NotebookApp] 404 GET /api/contents/workspace/backtrader/notebooks/team2/vanessa?1521178777788 (173.63.135.142) 1.44ms referer=https://35.229.76.21:3389/lab?
+[W 05:39:37.807 NotebookApp] 404 GET /api/contents/workspace/backtrader/notebooks/team2/vanessa/0315_teststrategy.ipynb?content=0&1521178777790 (173.63.135.142): No such file or directory: workspace/backtrader/notebooks/team2/vanessa/0315_teststrategy.ipynb
+[W 05:39:37.807 NotebookApp] No such file or directory: workspace/backtrader/notebooks/team2/vanessa/0315_teststrategy.ipynb
+[W 05:39:37.807 NotebookApp] 404 GET /api/contents/workspace/backtrader/notebooks/team2/vanessa/0315_teststrategy.ipynb?content=0&1521178777790 (173.63.135.142) 1.35ms referer=https://35.229.76.21:3389/lab?
+[I 05:39:38.577 NotebookApp] Build is up to date
+[I 05:39:40.879 NotebookApp] Kernel started: 9c522142-ad74-4fb5-bbc0-8d3d1814c9c1
+[I 05:39:41.678 NotebookApp] Adapting to protocol v5.1 for kernel 9c522142-ad74-4fb5-bbc0-8d3d1814c9c1
+[I 05:39:41.785 NotebookApp] Adapting to protocol v5.1 for kernel 9c522142-ad74-4fb5-bbc0-8d3d1814c9c1
+[W 05:41:27.930 NotebookApp] delete /strat_0222_GBR.ipynb
+[W 05:41:27.987 NotebookApp] delete /strat_0222_randomforest.ipynb
+[W 05:41:31.066 NotebookApp] Notebook strat_0222_ridge.ipynb is not trusted
+[I 05:41:31.694 NotebookApp] Kernel started: a145d2fa-ff6e-454a-8610-82d5e0b94ad5
+[I 05:41:33.400 NotebookApp] Adapting to protocol v5.1 for kernel a145d2fa-ff6e-454a-8610-82d5e0b94ad5
+[I 05:41:41.135 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 05:41:47.732 NotebookApp] Saving file at /strat_0222_ridge.ipynb
+[W 05:41:56.542 NotebookApp] Notebook strat_0222_lm.ipynb is not trusted
+[I 05:41:57.275 NotebookApp] Kernel started: 6a6c5394-88f2-4822-af27-eacd00a1f743
+[I 05:42:00.293 NotebookApp] Adapting to protocol v5.1 for kernel 6a6c5394-88f2-4822-af27-eacd00a1f743
+[I 05:42:13.350 NotebookApp] Saving file at /strat_0222_lm.ipynb
+[I 05:43:41.290 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 05:45:41.507 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[W 05:47:38.030 NotebookApp] SSL Error on 10 ('110.93.206.94', 64808): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 05:47:38.313 NotebookApp] SSL Error on 10 ('199.115.119.102', 29623): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[I 05:47:41.626 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 05:49:41.852 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 05:51:42.292 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 05:53:43.288 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 05:55:44.358 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 05:57:45.581 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 05:59:46.536 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:01:47.315 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:03:48.312 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:05:48.565 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:07:49.600 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:09:50.357 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:11:52.361 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:13:53.557 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:15:54.561 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:17:55.560 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:19:56.557 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:21:57.554 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:23:58.754 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:25:59.525 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:28:00.292 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:30:01.355 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:32:01.753 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:34:02.341 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:36:03.343 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:38:04.575 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:40:05.563 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:42:06.570 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:44:07.753 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:46:08.587 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:48:09.583 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:50:10.568 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:52:11.548 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:54:12.525 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:56:13.525 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 06:58:14.773 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 07:00:15.557 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 07:02:16.524 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 07:04:17.532 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 07:06:18.557 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 07:08:19.563 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 07:10:20.600 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 07:12:21.608 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 07:14:22.774 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 07:16:23.557 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 07:18:24.749 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 07:20:25.749 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 07:22:26.551 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 07:24:27.556 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 07:26:28.606 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 07:28:29.546 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 07:30:30.557 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 07:32:31.775 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 07:34:32.751 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 07:36:33.571 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[W 07:38:41.748 NotebookApp] WebSocket ping timeout after 119931 ms.
+[I 07:38:46.750 NotebookApp] Starting buffering for 9c522142-ad74-4fb5-bbc0-8d3d1814c9c1:f807a5f04a194d2a614b7dfffcaa725d
+[W 07:39:00.294 NotebookApp] WebSocket ping timeout after 119945 ms.
+[W 07:39:03.498 NotebookApp] WebSocket ping timeout after 119749 ms.
+[I 07:39:05.295 NotebookApp] Starting buffering for 6a6c5394-88f2-4822-af27-eacd00a1f743:92b5b7705d1047857acf8c16dfdc9a7d
+[I 07:39:08.499 NotebookApp] Starting buffering for a145d2fa-ff6e-454a-8610-82d5e0b94ad5:79913b5f7fc7d54332a83f18250f9375
+[W 09:17:10.476 NotebookApp] SSL Error on 10 ('194.28.112.51', 39710): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 09:17:10.794 NotebookApp] SSL Error on 10 ('194.28.112.51', 43559): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 09:27:30.453 NotebookApp] SSL Error on 10 ('184.105.139.70', 52034): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 10:13:07.073 NotebookApp] SSL Error on 10 ('82.146.56.228', 51551): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 10:32:51.937 NotebookApp] SSL Error on 10 ('82.146.56.228', 53261): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 10:52:39.547 NotebookApp] SSL Error on 10 ('82.146.56.228', 54994): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[I 11:00:16.818 NotebookApp] Adapting to protocol v5.1 for kernel 6a6c5394-88f2-4822-af27-eacd00a1f743
+[I 11:00:16.819 NotebookApp] Restoring connection for 6a6c5394-88f2-4822-af27-eacd00a1f743:92b5b7705d1047857acf8c16dfdc9a7d
+[I 11:00:19.677 NotebookApp] Adapting to protocol v5.1 for kernel a145d2fa-ff6e-454a-8610-82d5e0b94ad5
+[I 11:00:19.678 NotebookApp] Restoring connection for a145d2fa-ff6e-454a-8610-82d5e0b94ad5:79913b5f7fc7d54332a83f18250f9375
+[I 11:00:22.650 NotebookApp] Adapting to protocol v5.1 for kernel 9c522142-ad74-4fb5-bbc0-8d3d1814c9c1
+[I 11:00:22.651 NotebookApp] Restoring connection for 9c522142-ad74-4fb5-bbc0-8d3d1814c9c1:f807a5f04a194d2a614b7dfffcaa725d
+[I 11:00:22.651 NotebookApp] Replaying 421 buffered messages
+[I 11:01:03.673 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[W 11:16:46.819 NotebookApp] WebSocket ping timeout after 119906 ms.
+[W 11:16:49.679 NotebookApp] WebSocket ping timeout after 119898 ms.
+[I 11:16:51.820 NotebookApp] Starting buffering for 6a6c5394-88f2-4822-af27-eacd00a1f743:92b5b7705d1047857acf8c16dfdc9a7d
+[W 11:16:52.651 NotebookApp] WebSocket ping timeout after 119901 ms.
+[I 11:16:54.680 NotebookApp] Starting buffering for a145d2fa-ff6e-454a-8610-82d5e0b94ad5:79913b5f7fc7d54332a83f18250f9375
+[I 11:16:57.653 NotebookApp] Starting buffering for 9c522142-ad74-4fb5-bbc0-8d3d1814c9c1:f807a5f04a194d2a614b7dfffcaa725d
+[W 11:25:16.132 NotebookApp] SSL Error on 13 ('64.118.73.215', 2596): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 11:27:40.497 NotebookApp] SSL Error on 13 ('170.75.154.90', 64040): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 11:35:07.827 NotebookApp] SSL Error on 13 ('125.212.193.82', 63134): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 11:42:41.769 NotebookApp] SSL Error on 13 ('125.212.193.82', 56211): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 11:50:17.684 NotebookApp] SSL Error on 13 ('125.212.193.82', 49293): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 11:50:34.453 NotebookApp] SSL Error on 13 ('181.214.87.51', 42330): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 11:58:05.468 NotebookApp] SSL Error on 13 ('125.212.193.82', 58772): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 12:05:45.480 NotebookApp] SSL Error on 13 ('125.212.193.82', 51874): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 12:14:17.191 NotebookApp] SSL Error on 13 ('125.212.193.82', 61321): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 12:22:03.433 NotebookApp] SSL Error on 10 ('125.212.193.82', 54458): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 12:29:43.684 NotebookApp] SSL Error on 10 ('125.212.193.82', 63956): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 12:37:34.947 NotebookApp] SSL Error on 10 ('125.212.193.82', 57047): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 12:45:19.587 NotebookApp] SSL Error on 10 ('125.212.193.82', 50166): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 12:53:41.199 NotebookApp] SSL Error on 10 ('125.212.193.82', 59628): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 13:01:31.320 NotebookApp] SSL Error on 10 ('125.212.193.82', 52727): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 13:10:04.195 NotebookApp] SSL Error on 10 ('125.212.193.82', 62162): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 13:18:16.833 NotebookApp] SSL Error on 10 ('125.212.193.82', 55265): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 13:26:17.051 NotebookApp] SSL Error on 10 ('125.212.193.82', 64736): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 13:35:02.216 NotebookApp] SSL Error on 10 ('125.212.193.82', 57786): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 13:36:24.419 NotebookApp] SSL Error on 10 ('5.188.10.168', 40854): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 13:43:54.473 NotebookApp] SSL Error on 10 ('125.212.193.82', 50820): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 13:52:05.094 NotebookApp] SSL Error on 10 ('77.72.83.15', 272): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 13:52:41.398 NotebookApp] SSL Error on 10 ('125.212.193.82', 60195): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 14:00:53.427 NotebookApp] SSL Error on 10 ('125.212.193.82', 53283): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 14:09:01.288 NotebookApp] SSL Error on 10 ('125.212.193.82', 62764): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 14:17:28.467 NotebookApp] SSL Error on 10 ('125.212.193.82', 55900): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 14:25:55.567 NotebookApp] SSL Error on 10 ('125.212.193.82', 65368): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 14:34:07.194 NotebookApp] SSL Error on 10 ('125.212.193.82', 58489): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 14:42:12.514 NotebookApp] SSL Error on 10 ('125.212.193.82', 51635): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 14:50:22.872 NotebookApp] SSL Error on 10 ('125.212.193.82', 61175): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[I 14:51:49.078 NotebookApp] Adapting to protocol v5.1 for kernel 6a6c5394-88f2-4822-af27-eacd00a1f743
+[I 14:51:49.079 NotebookApp] Restoring connection for 6a6c5394-88f2-4822-af27-eacd00a1f743:92b5b7705d1047857acf8c16dfdc9a7d
+[I 14:51:51.986 NotebookApp] Adapting to protocol v5.1 for kernel a145d2fa-ff6e-454a-8610-82d5e0b94ad5
+[I 14:51:51.987 NotebookApp] Restoring connection for a145d2fa-ff6e-454a-8610-82d5e0b94ad5:79913b5f7fc7d54332a83f18250f9375
+[I 14:51:54.992 NotebookApp] Adapting to protocol v5.1 for kernel 9c522142-ad74-4fb5-bbc0-8d3d1814c9c1
+[I 14:51:54.993 NotebookApp] Restoring connection for 9c522142-ad74-4fb5-bbc0-8d3d1814c9c1:f807a5f04a194d2a614b7dfffcaa725d
+[I 14:52:07.501 NotebookApp] Starting buffering for a145d2fa-ff6e-454a-8610-82d5e0b94ad5:79913b5f7fc7d54332a83f18250f9375
+[I 14:52:07.502 NotebookApp] Starting buffering for 9c522142-ad74-4fb5-bbc0-8d3d1814c9c1:f807a5f04a194d2a614b7dfffcaa725d
+[I 14:52:07.503 NotebookApp] Starting buffering for 6a6c5394-88f2-4822-af27-eacd00a1f743:92b5b7705d1047857acf8c16dfdc9a7d
+[I 14:52:11.620 NotebookApp] Adapting to protocol v5.1 for kernel 6a6c5394-88f2-4822-af27-eacd00a1f743
+[I 14:52:12.130 NotebookApp] Build is up to date
+[I 14:52:13.923 NotebookApp] Starting buffering for 6a6c5394-88f2-4822-af27-eacd00a1f743:757d1c6023689e2dc86adb86270da488
+[I 14:52:14.621 NotebookApp] Adapting to protocol v5.1 for kernel 9c522142-ad74-4fb5-bbc0-8d3d1814c9c1
+[I 14:52:28.573 NotebookApp] Adapting to protocol v5.1 for kernel 6a6c5394-88f2-4822-af27-eacd00a1f743
+[I 14:53:28.020 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[I 14:55:28.203 NotebookApp] Saving file at /0315_teststrategy.ipynb
+[W 14:58:39.678 NotebookApp] SSL Error on 11 ('125.212.193.82', 54307): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 15:07:09.408 NotebookApp] SSL Error on 11 ('125.212.193.82', 63837): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 15:14:44.622 NotebookApp] WebSocket ping timeout after 119973 ms.
+[I 15:14:49.624 NotebookApp] Starting buffering for 9c522142-ad74-4fb5-bbc0-8d3d1814c9c1:a608fe5a277f96d8af549b77a0249f5b
+[W 15:14:58.576 NotebookApp] WebSocket ping timeout after 119870 ms.
+[I 15:15:03.577 NotebookApp] Starting buffering for 6a6c5394-88f2-4822-af27-eacd00a1f743:ed5771095d5675eceb9cb1e5ca277629
+[W 15:15:42.125 NotebookApp] SSL Error on 11 ('125.212.193.82', 56949): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 15:24:36.075 NotebookApp] SSL Error on 11 ('125.212.193.82', 50053): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[W 15:32:53.450 NotebookApp] SSL Error on 11 ('125.212.193.82', 59640): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[I 15:40:54.146 NotebookApp] Adapting to protocol v5.1 for kernel 9c522142-ad74-4fb5-bbc0-8d3d1814c9c1
+[I 15:40:54.147 NotebookApp] Restoring connection for 9c522142-ad74-4fb5-bbc0-8d3d1814c9c1:a608fe5a277f96d8af549b77a0249f5b
+[I 15:41:08.184 NotebookApp] Adapting to protocol v5.1 for kernel 6a6c5394-88f2-4822-af27-eacd00a1f743
+[I 15:41:08.185 NotebookApp] Restoring connection for 6a6c5394-88f2-4822-af27-eacd00a1f743:ed5771095d5675eceb9cb1e5ca277629
+[W 15:41:18.453 NotebookApp] SSL Error on 16 ('125.212.193.82', 52796): [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:777)
+[I 15:48:58.084 NotebookApp] Starting buffering for 9c522142-ad74-4fb5-bbc0-8d3d1814c9c1:a608fe5a277f96d8af549b77a0249f5b
+[I 15:48:58.085 NotebookApp] Starting buffering for 6a6c5394-88f2-4822-af27-eacd00a1f743:ed5771095d5675eceb9cb1e5ca277629
+[C 15:48:58.755 NotebookApp] received signal 15, stopping
+[I 15:48:58.756 NotebookApp] Shutting down 3 kernels
+[I 15:48:58.913 NotebookApp] Kernel shutdown: 9c522142-ad74-4fb5-bbc0-8d3d1814c9c1
+[I 15:48:58.914 NotebookApp] Kernel shutdown: a145d2fa-ff6e-454a-8610-82d5e0b94ad5
+[I 15:48:58.914 NotebookApp] Kernel shutdown: 6a6c5394-88f2-4822-af27-eacd00a1f743
