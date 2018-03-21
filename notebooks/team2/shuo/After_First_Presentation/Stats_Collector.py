@@ -9,7 +9,13 @@ import matplotlib.pyplot as plt
 get_ipython().magic('matplotlib inline')
 
 
-# In[6]:
+# In[9]:
+
+'''
+check for NaN
+'''
+def isNaN(num):
+    return num != num
 
 '''
 Get min, max, mean from two n-day intervals before and after trigger events.
@@ -33,6 +39,8 @@ def get_stats_around_triggers(signal_col,target_col,data,n):
     max_a = []
     ind = []
     for i in range(data.shape[0]):
+        if (isNaN(data[signal_col][i])):
+            continue
         if (data[signal_col][i] != 0):
             stats_temp_a = []
             stats_temp_b = []
