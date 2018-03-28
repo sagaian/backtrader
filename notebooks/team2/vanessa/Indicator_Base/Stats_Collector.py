@@ -1,15 +1,16 @@
 
 # coding: utf-8
 
-# In[5]:
+# In[17]:
 
 import pandas as pd
 import numpy as np
+import os
 import matplotlib.pyplot as plt
 get_ipython().magic('matplotlib inline')
 
 
-# In[9]:
+# In[18]:
 
 '''
 check for NaN
@@ -85,7 +86,7 @@ def get_stats_around_triggers(signal_col,target_col,data,n):
     return df_b, df_a, stats_b, stats_a                     
 
 
-# In[7]:
+# In[19]:
 
 '''
 Functions in this block will mark signals. If other signals are need, please add them on your own. 
@@ -162,7 +163,7 @@ def mark_BBands_Breaks(df_ti,bot,top,close):
     return df_ti
 
 
-# In[8]:
+# In[20]:
 
 '''
 Convert input DataFrame into Yahoo Finance style with all data as the target column
@@ -305,6 +306,52 @@ def read_data(file_type,path,date_ind):
         print("Wrong File Type!")
         return
     df.index = pd.to_datetime(df.index)
+    nan_part = df.index.isin(["NaT"])
+    df = df[~nan_part]
     df.sort_index(inplace=True)
+    return df
+
+def export_data(df,file_type,output_dir,filename):
+    path = os.path.join(output_dir,filename)
+    if (file_type == "csv"):
+        df.to_csv(path+".csv")
+    else:
+        df.to_excel(path+".xlsx")
+
+'''
+return straddle values provided the column names of buy, sell, straddle, and stock price
+'''
+def get_straddle_value(df,buy_ind,sell_ind,strad_ind,stock_ind):
+    output = []
+    for i in df.index:
+        cur_buy = df[buy_ind][i]
+        cur_sell = df[sell_ind][i]
+        cur_strad = df[strad_ind][i]
+        cur_stock = df[stock_ind][i]
+        or_stat = not (isNaN(cur_buy) and isNaN(cur_sell))
+        if (or_stat and isNaN(cur_stock)):
+            output.append(cur_strad)
+        else:
+            output.append(0)
+    return output
+    
+'''
+return total premium paid
+'''
+def get_total_premium_paid(strad_value):
+    output = []
+    for i in range(len(strad_value)):
+        output.append(np.sum(strad_value[:i+1]))
+    return output
+
+'''
+return the straddle adjusted portfolio value
+'''
+def get_straddle_adjusted_value(df,buy_ind,sell_ind,strad_ind,stock_ind,port_val):
+    strad_val = get_straddle_value(df,buy_ind,sell_ind,strad_ind,stock_ind)
+    total_prem = get_total_premium_paid(strad_val)
+    df["Straddle Value"] = strad_val
+    df["Total Premium Paid"] = total_prem
+    df["Value including Premium"] = df[port_val] - df["Total Premium Paid"]
     return df
 
