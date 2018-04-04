@@ -270,7 +270,8 @@ Export Summary Table as Excel File
 '''
 def export_summary_table(day_interval,df_tia,signal_col_list,target_col,dir_path,filename,target_stats_list,
                         target_day_intervals,n,threshold):
-    writer = pd.ExcelWriter(dir_path+filename+".xlsx",engine='xlsxwriter')
+    output_path = os.path.join(dir_path,filename)
+    writer = pd.ExcelWriter(output_path+".xlsx",engine='xlsxwriter')
     ob_temp_1 = concat_df(df_tia,signal_col_list[0],target_col,day_interval)
     df_avg = pd.DataFrame(index=signal_col_list, columns=ob_temp_1.columns)
     temp_col = []
@@ -314,9 +315,9 @@ def read_data(file_type,path,date_ind):
 def export_data(df,file_type,output_dir,filename):
     path = os.path.join(output_dir,filename)
     if (file_type == "csv"):
-        df.to_csv(path+".csv")
+        df.to_csv(path+"."+"csv")
     else:
-        df.to_excel(path+".xlsx")
+        df.to_excel(path+"."+"xlsx")
 
 '''
 return straddle values provided the column names of buy, sell, straddle, and stock price
@@ -355,3 +356,54 @@ def get_straddle_adjusted_value(df,buy_ind,sell_ind,strad_ind,stock_ind,port_val
     df["Value including Premium"] = df[port_val] - df["Total Premium Paid"]
     return df
 
+'''
+return all combo
+'''
+def generate_combo(df,col_list,min_trig,max_trig,logical_type):
+    df_copy = df.copy()
+    for i in range(len(col_list)):
+        for j in range(i,len(col_list)):
+            col_i = col_list[i]
+            col_j = col_list[j]
+            if (col_i == col_j):
+                continue
+            else:
+                cur_combo = []
+                cur_combo_name = col_i + "_"+ col_j
+                if (logical_type == "and" or logical_type == "And" or logical_type == "AND" or logical_type == "a"):
+                    cur_combo_name += "_AND"
+                    for k in df.index:
+                        cur_i = df[col_i][k]
+                        cur_j = df[col_j][k]
+                        if (isNaN(cur_i) or isNaN(cur_j)):
+                            cur_combo.append(0)
+                        elif (cur_i != 0 and cur_j != 0):
+                            cur_combo.append(1)
+                        else:
+                            cur_combo.append(0)
+                elif (logical_type == "or" or logical_type == "Or" or logical_type == "OR" or logical_type == "o"):
+                    cur_combo_name += "_OR"
+                    for k in df.index:
+                        cur_i = df[col_i][k]
+                        cur_j = df[col_j][k]
+                        if (isNaN(cur_i) and isNaN(cur_j)):
+                            cur_combo.append(0)
+                        else:
+                            if (isNaN(cur_i)):
+                                if (cur_j != 0):
+                                    cur_combo.append(1)
+                                else:
+                                    cur_combo.append(0)
+                            elif (isNaN(cur_j)):
+                                if (cur_i != 0):
+                                    cur_combo.append(1)
+                                else:
+                                    cur_combo.append(0)
+                            else:
+                                if (cur_i != 0 or cur_j != 0):
+                                    cur_combo.append(1)
+                                else:
+                                    cur_combo.append(0)
+                if (np.sum(cur_combo) >= min_trig and np.sum(cur_combo) <= max_trig):
+                    df_copy[cur_combo_name] = cur_combo          
+    return df_copy
