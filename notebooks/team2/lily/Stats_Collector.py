@@ -1,15 +1,22 @@
 
 # coding: utf-8
 
-# In[5]:
+# In[17]:
 
 import pandas as pd
 import numpy as np
+import os
 import matplotlib.pyplot as plt
 get_ipython().magic('matplotlib inline')
 
 
-# In[6]:
+# In[18]:
+
+'''
+check for NaN
+'''
+def isNaN(num):
+    return num != num
 
 '''
 Get min, max, mean from two n-day intervals before and after trigger events.
@@ -33,6 +40,8 @@ def get_stats_around_triggers(signal_col,target_col,data,n):
     max_a = []
     ind = []
     for i in range(data.shape[0]):
+        if (isNaN(data[signal_col][i])):
+            continue
         if (data[signal_col][i] != 0):
             stats_temp_a = []
             stats_temp_b = []
@@ -77,7 +86,7 @@ def get_stats_around_triggers(signal_col,target_col,data,n):
     return df_b, df_a, stats_b, stats_a                     
 
 
-# In[7]:
+# In[19]:
 
 '''
 Functions in this block will mark signals. If other signals are need, please add them on your own. 
@@ -154,7 +163,7 @@ def mark_BBands_Breaks(df_ti,bot,top,close):
     return df_ti
 
 
-# In[8]:
+# In[20]:
 
 '''
 Convert input DataFrame into Yahoo Finance style with all data as the target column
@@ -261,7 +270,8 @@ Export Summary Table as Excel File
 '''
 def export_summary_table(day_interval,df_tia,signal_col_list,target_col,dir_path,filename,target_stats_list,
                         target_day_intervals,n,threshold):
-    writer = pd.ExcelWriter(dir_path+filename+".xlsx",engine='xlsxwriter')
+    output_path = os.path.join(dir_path,filename)
+    writer = pd.ExcelWriter(output_path+".xlsx",engine='xlsxwriter')
     ob_temp_1 = concat_df(df_tia,signal_col_list[0],target_col,day_interval)
     df_avg = pd.DataFrame(index=signal_col_list, columns=ob_temp_1.columns)
     temp_col = []
@@ -297,6 +307,103 @@ def read_data(file_type,path,date_ind):
         print("Wrong File Type!")
         return
     df.index = pd.to_datetime(df.index)
+    nan_part = df.index.isin(["NaT"])
+    df = df[~nan_part]
     df.sort_index(inplace=True)
     return df
 
+def export_data(df,file_type,output_dir,filename):
+    path = os.path.join(output_dir,filename)
+    if (file_type == "csv"):
+        df.to_csv(path+"."+"csv")
+    else:
+        df.to_excel(path+"."+"xlsx")
+
+'''
+return straddle values provided the column names of buy, sell, straddle, and stock price
+'''
+def get_straddle_value(df,buy_ind,sell_ind,strad_ind,stock_ind):
+    output = []
+    for i in df.index:
+        cur_buy = df[buy_ind][i]
+        cur_sell = df[sell_ind][i]
+        cur_strad = df[strad_ind][i]
+        cur_stock = df[stock_ind][i]
+        or_stat = not (isNaN(cur_buy) and isNaN(cur_sell))
+        if (or_stat and isNaN(cur_stock)):
+            output.append(cur_strad)
+        else:
+            output.append(0)
+    return output
+    
+'''
+return total premium paid
+'''
+def get_total_premium_paid(strad_value):
+    output = []
+    for i in range(len(strad_value)):
+        output.append(np.sum(strad_value[:i+1]))
+    return output
+
+'''
+return the straddle adjusted portfolio value
+'''
+def get_straddle_adjusted_value(df,buy_ind,sell_ind,strad_ind,stock_ind,port_val):
+    strad_val = get_straddle_value(df,buy_ind,sell_ind,strad_ind,stock_ind)
+    total_prem = get_total_premium_paid(strad_val)
+    df["Straddle Value"] = strad_val
+    df["Total Premium Paid"] = total_prem
+    df["Value including Premium"] = df[port_val] - df["Total Premium Paid"]
+    return df
+
+'''
+return all combo
+'''
+def generate_combo(df,col_list,min_trig,max_trig,logical_type):
+    df_copy = df.copy()
+    for i in range(len(col_list)):
+        for j in range(i,len(col_list)):
+            col_i = col_list[i]
+            col_j = col_list[j]
+            if (col_i == col_j):
+                continue
+            else:
+                cur_combo = []
+                cur_combo_name = col_i + "_"+ col_j
+                if (logical_type == "and" or logical_type == "And" or logical_type == "AND" or logical_type == "a"):
+                    cur_combo_name += "_AND"
+                    for k in df.index:
+                        cur_i = df[col_i][k]
+                        cur_j = df[col_j][k]
+                        if (isNaN(cur_i) or isNaN(cur_j)):
+                            cur_combo.append(0)
+                        elif (cur_i != 0 and cur_j != 0):
+                            cur_combo.append(1)
+                        else:
+                            cur_combo.append(0)
+                elif (logical_type == "or" or logical_type == "Or" or logical_type == "OR" or logical_type == "o"):
+                    cur_combo_name += "_OR"
+                    for k in df.index:
+                        cur_i = df[col_i][k]
+                        cur_j = df[col_j][k]
+                        if (isNaN(cur_i) and isNaN(cur_j)):
+                            cur_combo.append(0)
+                        else:
+                            if (isNaN(cur_i)):
+                                if (cur_j != 0):
+                                    cur_combo.append(1)
+                                else:
+                                    cur_combo.append(0)
+                            elif (isNaN(cur_j)):
+                                if (cur_i != 0):
+                                    cur_combo.append(1)
+                                else:
+                                    cur_combo.append(0)
+                            else:
+                                if (cur_i != 0 or cur_j != 0):
+                                    cur_combo.append(1)
+                                else:
+                                    cur_combo.append(0)
+                if (np.sum(cur_combo) >= min_trig and np.sum(cur_combo) <= max_trig):
+                    df_copy[cur_combo_name] = cur_combo          
+    return df_copy
